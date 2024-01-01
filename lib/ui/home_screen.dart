@@ -144,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 16.0),
                 ElevatedButton(
                   onPressed: _submitForm,
-                  child: const Text('Register'),
+                  child: const Text('Show Result'),
                 ),
               ],
             ),

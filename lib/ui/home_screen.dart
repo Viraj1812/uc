@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:uc/helper/validation_provier.dart';
 import 'package:uc/ui/result_screen.dart';
-import 'package:uc/widgets/cus_drop_down.dart';
-import 'package:uc/widgets/cus_gender_sel.dart';
-import 'package:uc/widgets/cus_hobbie_sel.dart';
-import 'package:uc/widgets/cus_textform_field.dart';
+import 'package:uc/widgets/custom_dropdown_widget.dart';
+import 'package:uc/widgets/custom_hobbie_widget.dart';
+import 'package:uc/widgets/custom_radio_widget.dart';
+import 'package:uc/widgets/custom_textformfield_widget.dart';
 import 'package:uc/widgets/switch.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -54,7 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   onFieldSubmitted: () {
                     FocusScope.of(context).requestFocus(f2);
                   },
-                  validator: (value) => ValidationProvider.validateName(value!),
+                  validator: (value) =>
+                      ValidationProvider.validateName(value ?? ''),
                 ),
                 const SizedBox(height: 16.0),
                 CustomTextFormField(
@@ -65,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     FocusScope.of(context).requestFocus(f3);
                   },
                   validator: (value) =>
-                      ValidationProvider.validateEmail(value!),
+                      ValidationProvider.validateEmail(value ?? ''),
                 ),
                 const SizedBox(height: 16.0),
                 CustomTextFormField(
@@ -76,14 +77,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     FocusScope.of(context).requestFocus(f4);
                   },
                   validator: (value) =>
-                      ValidationProvider.validateMobileNumber(value!),
+                      ValidationProvider.validateMobileNumber(value ?? ''),
                 ),
                 const SizedBox(height: 16.0),
                 CustomTextFormField(
                   controller: _addressController,
                   labelText: 'Address',
                   validator: (value) =>
-                      ValidationProvider.validateAddress(value!),
+                      ValidationProvider.validateAddress(value ?? ''),
                   focusNode: f4,
                 ),
                 const SizedBox(height: 16.0),
@@ -91,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   controller: _pincodeController,
                   labelText: 'Pincode',
                   validator: (value) =>
-                      ValidationProvider.validatePincode(value!),
+                      ValidationProvider.validatePincode(value),
                   focusNode: f5,
                 ),
                 const SizedBox(height: 16.0),
@@ -99,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   controller: _passwordController,
                   labelText: 'Password',
                   validator: (value) =>
-                      ValidationProvider.validatePassword(value!),
+                      ValidationProvider.validatePassword(value ?? ''),
                   focusNode: f6,
                 ),
                 const SizedBox(height: 16.0),
@@ -111,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     });
                   },
                   validator: (value) =>
-                      ValidationProvider.validateUserType(value!),
+                      ValidationProvider.validateUserType(value ?? ''),
                   items: const ['Select Type', 'Admin', 'User', 'Super Admin'],
                   labelText: 'User Type',
                 ),
